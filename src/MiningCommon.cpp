@@ -1,0 +1,20 @@
+#include "MiningCommon.h"
+
+std::atomic<bool> running = true;
+std::atomic<int> globalDifficulty = 1727;
+std::mutex mtx;
+std::mutex coutmtx;
+
+std::string globalUserAddress = "0x123456789";
+std::string globalDevfeeAddress = "0x8e0eF38146634d387A7302d084bDCdC000999999";
+std::atomic<int> globalDevfeePermillage = 1; // per 1000
+std::string machineId = "00000";
+
+std::map<int, std::pair<gpuInfo, std::chrono::steady_clock::time_point>> globalGpuInfos;
+std::mutex globalGpuInfosMutex;
+
+std::atomic<int> globalNormalBlockCount = 0;
+std::atomic<int> globalSuperBlockCount = 0;
+std::atomic<int> globalXuniBlockCount = 0;
+std::atomic<long> globalHashCount = 0;
+std::chrono::system_clock::time_point start_time = std::chrono::system_clock::now();
